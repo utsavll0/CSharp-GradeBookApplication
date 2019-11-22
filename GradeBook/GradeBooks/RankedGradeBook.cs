@@ -19,21 +19,23 @@ namespace GradeBook.GradeBooks
                     cntGreaterThanGiven++;
                 }
             }
-            var totalStudents = Students.Count;
-            var perCentCount = (cntGreaterThanGiven / totalStudents) * 100;
-            if(perCentCount<=20)
+            var thresholdCount20 = Students.Count * 0.2;
+            var thresholdCount40 = Students.Count * 0.4;
+            var thresholdCount60 = Students.Count * 0.6;
+            var thresholdCount80 = Students.Count * 0.8;
+            if (cntGreaterThanGiven<=thresholdCount20)
             {
                 return 'A';
             }
-            if (perCentCount <= 40 && perCentCount>20)
+            if (cntGreaterThanGiven <= thresholdCount40)
             {
                 return 'B';
             }
-            if (perCentCount <= 60 && perCentCount >40)
+            if (cntGreaterThanGiven <= thresholdCount60)
             {
                 return 'C';
             }
-            if(perCentCount<=80 && perCentCount>60)
+            if(cntGreaterThanGiven <= thresholdCount80)
             {
                 return 'D';
             }
